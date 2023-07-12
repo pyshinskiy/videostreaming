@@ -1,0 +1,24 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10000MB
+      max-request-size: 10000MB
+  datasource: #when changing these three connection properties below, don't forget first to change properties in docker-compose file in {project-root}/docker/docker-compose.yaml
+    url: jdbc:postgresql://localhost:5432/photon
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: POSTGRESQL
+
+photon:
+  streaming:
+    default-chunk-size: 3145728 #value in bytes
+
+minio: #when changing these three connection properties below, don't forget first to change properties in docker-compose file in {project-root}/docker/docker-compose.yaml
+  url: http://localhost:9000
+  username: admin
+  password: adminpass
+  put-object-part-size: 5242880 #value in bytes (minimum is 5 MB equivalent)
