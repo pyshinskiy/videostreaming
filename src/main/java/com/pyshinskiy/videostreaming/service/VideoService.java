@@ -1,7 +1,7 @@
 package com.pyshinskiy.videostreaming.service;
 
 import org.springframework.web.multipart.MultipartFile;
-import com.pyshinskiy.videostreaming.utl.Range;
+import com.pyshinskiy.videostreaming.util.Range;
 
 import java.util.UUID;
 

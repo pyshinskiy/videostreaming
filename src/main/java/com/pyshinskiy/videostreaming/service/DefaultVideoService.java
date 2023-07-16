@@ -1,17 +1,16 @@
 package com.pyshinskiy.videostreaming.service;
 
+import com.pyshinskiy.videostreaming.binarystorage.MinioStorageService;
+import com.pyshinskiy.videostreaming.entity.FileMetadataEntity;
 import com.pyshinskiy.videostreaming.exception.StorageException;
+import com.pyshinskiy.videostreaming.repository.FileMetadataRepository;
+import com.pyshinskiy.videostreaming.util.Range;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import com.pyshinskiy.videostreaming.binarystorage.MinioStorageService;
-import com.pyshinskiy.videostreaming.entity.FileMetadataEntity;
-import com.pyshinskiy.videostreaming.repository.FileMetadataRepository;
-import com.pyshinskiy.videostreaming.utl.Range;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.UUID;
 

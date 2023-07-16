@@ -1,4 +1,4 @@
-package com.pyshinskiy.videostreaming.utl;
+package com.pyshinskiy.videostreaming.util;
 
 import lombok.Builder;
 

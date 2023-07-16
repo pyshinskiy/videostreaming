@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.pyshinskiy.videostreaming.service.DefaultVideoService;
 import com.pyshinskiy.videostreaming.service.VideoService;
-import com.pyshinskiy.videostreaming.utl.Range;
+import com.pyshinskiy.videostreaming.util.Range;
 
 import java.util.UUID;
 
