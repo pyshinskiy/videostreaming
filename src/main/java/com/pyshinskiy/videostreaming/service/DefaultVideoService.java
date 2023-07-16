@@ -54,12 +54,7 @@ public class DefaultVideoService implements VideoService {
         long endPosition = range.getRangeEnd(fileSize);
         int chunkSize = (int) (endPosition - startPosition + 1);
         try(InputStream inputStream = storageService.getInputStream(uuid, startPosition, chunkSize)) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] data = new byte[chunkSize];
-            inputStream.readNBytes(data, 0, chunkSize);
-            byteArrayOutputStream.writeBytes(data);
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toByteArray();
+            return inputStream.readAllBytes();
         } catch (Exception exception) {
             log.error("Exception occurred when trying to read file with ID = {}", uuid);
             throw new StorageException(exception);
