@@ -50,13 +50,12 @@ public class DefaultVideoService implements VideoService {
     }
 
     private byte[] readChunk(UUID uuid, Range range, long fileSize) {
-        try(InputStream inputStream = storageService.getInputStream(uuid)) {
+        long startPosition = range.getRangeStart();
+        long endPosition = range.getRangeEnd(fileSize);
+        int chunkSize = (int) (endPosition - startPosition + 1);
+        try(InputStream inputStream = storageService.getInputStream(uuid, startPosition, chunkSize)) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            long startPosition = range.getRangeStart();
-            long endPosition = range.getRangeEnd(fileSize);
-            int chunkSize = (int) (endPosition - startPosition + 1);
             byte[] data = new byte[chunkSize];
-            inputStream.skipNBytes(startPosition);
             inputStream.readNBytes(data, 0, chunkSize);
             byteArrayOutputStream.writeBytes(data);
             byteArrayOutputStream.flush();

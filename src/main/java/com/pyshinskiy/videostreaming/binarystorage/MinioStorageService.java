@@ -34,11 +34,13 @@ public class MinioStorageService {
         );
     }
 
-    public InputStream getInputStream(UUID uuid) throws Exception {
+    public InputStream getInputStream(UUID uuid, long offset, long length) throws Exception {
         return minioClient.getObject(
                 GetObjectArgs
                         .builder()
                         .bucket(MinioConfig.COMMON_BUCKET_NAME)
+                        .offset(offset)
+                        .length(length)
                         .object(uuid.toString())
                         .build());
     }
