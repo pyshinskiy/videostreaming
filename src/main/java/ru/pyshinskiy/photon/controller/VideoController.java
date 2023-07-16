@@ -13,10 +13,8 @@ import ru.pyshinskiy.photon.service.DefaultVideoService;
 import ru.pyshinskiy.photon.service.VideoService;
 import ru.pyshinskiy.photon.utl.Range;
 
-import java.util.List;
 import java.util.UUID;
 
-import static jdk.jfr.DataAmount.BYTES;
 import static org.springframework.http.HttpHeaders.*;
 
 @Slf4j
@@ -37,12 +35,12 @@ public class VideoController {
     }
 
     @GetMapping("/{uuid}")
-    public ResponseEntity<byte[]> readChunks(
+    public ResponseEntity<byte[]> fetchChunk(
             @RequestHeader(value = HttpHeaders.RANGE, required = false) String range,
             @PathVariable UUID uuid
     ) {
         Range parsedRange = Range.parseHttpRangeString(range, defaultChunkSize);
-        DefaultVideoService.ChunkWithMetadata chunkWithMetadata = videoService.fetchChunks(uuid, parsedRange);
+        DefaultVideoService.ChunkWithMetadata chunkWithMetadata = videoService.fetchChunk(uuid, parsedRange);
         return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
                 .header(CONTENT_TYPE, chunkWithMetadata.metadata().getHttpContentType())
                 .header(ACCEPT_RANGES, HttpConstants.ACCEPTS_RANGES_VALUE)

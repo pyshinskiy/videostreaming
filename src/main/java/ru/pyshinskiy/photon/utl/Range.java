@@ -21,9 +21,9 @@ public class Range {
         if (httpRangeString == null) {
             return Range.builder().start(0).end(defaultChunkSize).build();
         }
-        int indexOfDash = httpRangeString.indexOf("-");
-        long startRange = Long.parseLong(httpRangeString.substring(6, indexOfDash));
-        String endRangeString = httpRangeString.substring(indexOfDash + 1);
+        int dashIndex = httpRangeString.indexOf("-");
+        long startRange = Long.parseLong(httpRangeString.substring(6, dashIndex));
+        String endRangeString = httpRangeString.substring(dashIndex + 1);
         if (endRangeString.isEmpty()) {
             return Range.builder().start(startRange).end(startRange + defaultChunkSize).build();
         }

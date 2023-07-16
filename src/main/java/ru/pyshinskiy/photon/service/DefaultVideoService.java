@@ -13,7 +13,6 @@ import ru.pyshinskiy.photon.utl.Range;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -45,17 +44,12 @@ public class DefaultVideoService implements VideoService {
     }
 
     @Override
-    public List<UUID> getAll() {
-        return null;
-    }
-
-    @Override
-    public ChunkWithMetadata fetchChunks(UUID uuid, Range range) {
+    public ChunkWithMetadata fetchChunk(UUID uuid, Range range) {
         FileMetadataEntity fileMetadata = fileMetadataRepository.findById(uuid.toString()).orElseThrow();
-        return new ChunkWithMetadata(fileMetadata, readChunks(uuid, range, fileMetadata.getSize()));
+        return new ChunkWithMetadata(fileMetadata, readChunk(uuid, range, fileMetadata.getSize()));
     }
 
-    private byte[] readChunks(UUID uuid, Range range, long fileSize) {
+    private byte[] readChunk(UUID uuid, Range range, long fileSize) {
         try(InputStream inputStream = storageService.getInputStream(uuid)) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             long startPosition = range.getRangeStart();
