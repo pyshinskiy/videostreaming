@@ -1,4 +1,4 @@
-package ru.pyshinskiy.photon.exception;
+package com.pyshinskiy.videostreaming.exception;
 
 public class StorageException extends RuntimeException {
 

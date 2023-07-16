@@ -1,4 +1,4 @@
-package ru.pyshinskiy.photon;
+package com.pyshinskiy.videostreaming;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

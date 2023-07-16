@@ -1,4 +1,4 @@
-package ru.pyshinskiy.photon.utl;
+package com.pyshinskiy.videostreaming.utl;
 
 import lombok.Builder;
 

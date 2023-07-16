@@ -1,15 +1,15 @@
-package ru.pyshinskiy.photon.service;
+package com.pyshinskiy.videostreaming.service;
 
+import com.pyshinskiy.videostreaming.exception.StorageException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import ru.pyshinskiy.photon.binarystorage.MinioStorageService;
-import ru.pyshinskiy.photon.entity.FileMetadataEntity;
-import ru.pyshinskiy.photon.exception.StorageException;
-import ru.pyshinskiy.photon.repository.FileMetadataRepository;
-import ru.pyshinskiy.photon.utl.Range;
+import com.pyshinskiy.videostreaming.binarystorage.MinioStorageService;
+import com.pyshinskiy.videostreaming.entity.FileMetadataEntity;
+import com.pyshinskiy.videostreaming.repository.FileMetadataRepository;
+import com.pyshinskiy.videostreaming.utl.Range;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;

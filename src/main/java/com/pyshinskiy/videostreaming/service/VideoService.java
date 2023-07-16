@@ -1,7 +1,7 @@
-package ru.pyshinskiy.photon.service;
+package com.pyshinskiy.videostreaming.service;
 
 import org.springframework.web.multipart.MultipartFile;
-import ru.pyshinskiy.photon.utl.Range;
+import com.pyshinskiy.videostreaming.utl.Range;
 
 import java.util.UUID;
 

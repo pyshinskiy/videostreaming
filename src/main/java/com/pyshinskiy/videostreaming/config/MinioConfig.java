@@ -1,4 +1,4 @@
-package ru.pyshinskiy.photon.config;
+package com.pyshinskiy.videostreaming.config;
 
 import io.minio.BucketExistsArgs;
 import io.minio.MakeBucketArgs;

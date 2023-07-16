@@ -1,4 +1,4 @@
-package ru.pyshinskiy.photon.entity;
+package com.pyshinskiy.videostreaming.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
